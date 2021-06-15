@@ -1,5 +1,5 @@
-Manifest-Version: 2.0.1
+Manifest-Version: 2.0.2
 Specification-Vendor: INDIForJava
 Name: org/indilib/i4j/driver
 Specification-Title: INDIForJava-driver
-Specification-Version: 2.0.1
+Specification-Version: 2.0.2
