@@ -1,0 +1,82 @@
+apply plugin: 'java-library'
+apply plugin: 'idea'
+apply plugin: 'maven'
+
+repositories {
+    mavenCentral()
+    maven { url 'https://jitpack.io' }
+}
+
+test {
+    useJUnitPlatform()
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+group 'org.indilib.i4j'
+description = 'INDIForJava-driver'
+version '2.0.0'
+
+dependencies {
+    api 'com.github.INDIForJava:INDIForJava-core:3abf2197b7'
+}
+
+jar {
+    archivesBaseName = project.name
+    destinationDirectory =  file("build/")
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    manifest {
+        from 'META-INF/MANIFEST.MF'
+    }
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+
+task sourcesJar(type: Jar, dependsOn: classes) {
+    from sourceSets.main.allSource
+    classifier "sources"
+    extension "jar"
+}
+
+task javadocJar(type: Jar) {
+    classifier "javadoc"
+    from javadoc
+}
+
+artifacts {
+    archives javadocJar, sourcesJar
+}
+
+configure(install.repositories.mavenInstaller) {
+    pom.project {
+        inceptionYear = '2012'
+        name = project.name
+        packaging = 'jar'
+        description = project.description
+
+        url = 'https://github.com/INDIForJava/INDIForJava-driver'
+
+        scm {
+            connection = 'git@github.com:INDIForJava/INDIForJava-driver.git'
+            developerConnection = 'git@github.com:INDIForJava/INDIForJava-driver.git'
+            url = 'https://github.com/INDIForJava/INDIForJava-driver'
+        }
+
+        licenses {
+            license {
+                name = 'GNU General Public License'
+                url = 'https://www.gnu.org/licenses/gpl-3.0.txt'
+            }
+        }
+
+        developers {
+            developer {
+                id = 'marcocipriani01'
+                name = 'Marco Cipriani'
+                email = 'marco.cipriani.01@gmail.com'
+            }
+        }
+    }
+}
