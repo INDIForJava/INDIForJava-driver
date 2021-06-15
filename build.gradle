@@ -19,7 +19,7 @@ description = 'INDIForJava-driver'
 version '2.0.0'
 
 dependencies {
-    api 'com.github.INDIForJava:INDIForJava-core:3abf2197b7'
+    api 'com.github.INDIForJava:INDIForJava-core:2.0.0'
 }
 
 jar {
