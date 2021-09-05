@@ -6,7 +6,7 @@ plugins {
 
 group = "org.indilib.i4j"
 description = "INDIForJava-driver"
-version = "2.0.3"
+version = "2.0.5"
 
 repositories {
     mavenCentral()
@@ -15,13 +15,13 @@ repositories {
     }
 }
 
+dependencies {
+    implementation("com.github.INDIForJava:INDIForJava-core:2.0.5")
+}
+
 java {
     sourceCompatibility = JavaVersion.VERSION_1_8
     targetCompatibility = JavaVersion.VERSION_1_8
-}
-
-dependencies {
-    api("com.github.INDIForJava:INDIForJava-core:2.0.2")
 }
 
 tasks.jar {
@@ -52,7 +52,9 @@ tasks {
 
 publishing {
     publications {
-        create<MavenPublication>("mavenJava") {
+        create<MavenPublication>("maven") {
+            from(components["java"])
+
             pom {
                 name.set(project.name)
                 description.set("INDIForJava is a set of libraries to implement clients and servers that follow the INDI protocol, designed to operate astronomical instrumentation.")
