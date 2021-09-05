@@ -6,7 +6,7 @@ plugins {
 
 group = "org.indilib.i4j"
 description = "INDIForJava-driver"
-version = "2.0.5"
+version = "2.0.6"
 
 repositories {
     mavenCentral()
@@ -16,7 +16,7 @@ repositories {
 }
 
 dependencies {
-    implementation("com.github.INDIForJava:INDIForJava-core:2.0.5")
+    api("com.github.INDIForJava:INDIForJava-core:2.0.5")
 }
 
 java {
