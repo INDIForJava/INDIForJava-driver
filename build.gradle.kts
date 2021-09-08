@@ -6,7 +6,7 @@ plugins {
 
 group = "org.indilib.i4j"
 description = "INDIForJava-driver"
-version = "2.0.6"
+version = "2.1.0"
 
 repositories {
     mavenCentral()
@@ -16,12 +16,12 @@ repositories {
 }
 
 dependencies {
-    api("com.github.INDIForJava:INDIForJava-core:2.0.5")
+    api("com.github.INDIForJava:INDIForJava-core:2.1.0")
 }
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_1_8
-    targetCompatibility = JavaVersion.VERSION_1_8
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
 }
 
 tasks.jar {
